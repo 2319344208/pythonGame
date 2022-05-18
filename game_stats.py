@@ -6,10 +6,10 @@ class GameStats():
         self.settings = ai_game.settings
         self.reset_stats()
         
-        # Start Alien Invasion in an active state.
+        # 游戏活动初始状态为False.
         self.game_active = False
 
-        # High score should never be reset.
+        # 不能重置最高分.
         self.high_score =self.get_high_score()
         
     def reset_stats(self):

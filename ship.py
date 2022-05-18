@@ -10,24 +10,23 @@ class Ship(Sprite):
         self.settings = ai_game.settings
         self.screen_rect = ai_game.screen.get_rect()
 
-        # Load the ship image and get its rect.
+        # 加载飞船图片并获得其外接矩形.
         self.image = pygame.image.load('images/ship.bmp')
         self.rect = self.image.get_rect()
 
-        # Start each new ship at the bottom center of the screen.
-        # self.rect.midbottom = self.screen_rect.midbottom
+        #开始每个新船在屏幕底部的中心.
+        self.rect.midbottom = self.screen_rect.midbottom
         # 出现在左边
-        self.rect.midleft = self.screen_rect.midleft
+        # self.rect.midleft = self.screen_rect.midleft
 
-        # Store a decimal value for the ship's horizontal position.
+        # 存储飞船的位置.
         self.x = float(self.rect.x)
         # 添加功能
         self.y=float(self.screen_rect.bottom-self.rect.height)
 
-        # Movement flags
+        # 移动标志
         self.moving_right = False
         self.moving_left = False
-        # 本人添加功能
         self.moving_up=False
         self.moving_down=False
     def update(self):
@@ -54,7 +53,7 @@ class Ship(Sprite):
         self.screen.blit(self.image, self.rect)
 
     def center_ship(self):
-        """Center the ship on the screen."""
+        """让飞船在屏幕中心."""
         self.rect.midbottom = self.screen_rect.midbottom
         self.x = float(self.rect.x)
         self.y=float(self.screen_rect.bottom-self.rect.height)

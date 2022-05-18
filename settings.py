@@ -13,7 +13,9 @@ class Settings():
         # 子弹参数设置.
         self.bullet_width = 8
         self.bullet_height = 10
+        # 子弹颜色
         self.bullet_color = 60, 60, 60
+        # 限制子弹数量
         self.bullets_allowed = 10
 
         # 外星人参数设置
@@ -27,18 +29,18 @@ class Settings():
         self.initialize_dynamic_settings()
 
     def initialize_dynamic_settings(self):
-        """Initialize settings that change throughout the game."""
+        """初始化设置."""
         self.ship_speed = 2.0
         self.bullet_speed = 3.0
         self.alien_speed = 1.0
 
-        # fleet_direction of 1 represents right; -1 represents left.
+        # fleet_direction 1 代表右; -1 代表左.
         self.fleet_direction = 1
 
-        # Scoring
+        # 一个外星人分数50
         self.alien_points = 50
     def increase_speed(self):
-        """Increase speed settings and alien point values."""
+        """提高速度."""
         self.ship_speed *= self.speedup_scale
         self.bullet_speed *= self.speedup_scale
         self.alien_speed *= self.speedup_scale
