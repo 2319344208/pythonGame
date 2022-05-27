@@ -1,3 +1,5 @@
+from tkinter import Image
+
 import pygame
 from pygame.sprite import Sprite
 
@@ -9,20 +11,22 @@ class Ship(Sprite):
         self.screen = ai_game.screen
         self.settings = ai_game.settings
         self.screen_rect = ai_game.screen.get_rect()
+        # 飞船翻转标志为False时才翻转
+        self.turn=False
 
         # 加载飞船图片并获得其外接矩形.
         self.image = pygame.image.load('images/ship.bmp')
         self.rect = self.image.get_rect()
 
         #开始每个新船在屏幕底部的中心.
-        self.rect.midbottom = self.screen_rect.midbottom
+        # self.rect.midbottom = self.screen_rect.midbottom
         # 出现在左边
-        # self.rect.midleft = self.screen_rect.midleft
+        self.rect.midleft = self.screen_rect.midleft
 
         # 存储飞船的位置.
         self.x = float(self.rect.x)
         # 添加功能
-        self.y=float(self.screen_rect.bottom-self.rect.height)
+        self.y=float(self.screen_rect.height/2)
 
         # 移动标志
         self.moving_right = False
@@ -50,10 +54,13 @@ class Ship(Sprite):
 
     def blitme(self):
         """在屏幕中绘制出船的图片."""
+        if(self.turn==False):
+          self.image=pygame.transform.rotate(self.image,-90)
+          self.turn=True
         self.screen.blit(self.image, self.rect)
 
     def center_ship(self):
         """让飞船在屏幕中心."""
-        self.rect.midbottom = self.screen_rect.midbottom
+        self.rect.midleft = self.screen_rect.midleft
         self.x = float(self.rect.x)
-        self.y=float(self.screen_rect.bottom-self.rect.height)
+        self.y=float(self.screen_rect.height/2)

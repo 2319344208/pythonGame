@@ -1,6 +1,5 @@
 class GameStats():
     """外星人入侵的跟踪统计"""
-    
     def __init__(self, ai_game):
         """初始化数据"""
         self.settings = ai_game.settings
