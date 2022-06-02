@@ -1,12 +1,10 @@
-<<<<<<< HEAD
 import sys
 from time import sleep
 
 import pygame
 
-=======
 from time import sleep
->>>>>>> 90f4ada (seven commit)
+
 from settings import Settings
 from game_stats import GameStats
 from scoreboard import Scoreboard

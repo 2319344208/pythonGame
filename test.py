@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-
-=======
 import unittest
 from unittest import TestCase
 import win32api
@@ -93,4 +89,4 @@ class Test(TestCase):
 
 if __name__ == '__main__':
     unittest.main()
->>>>>>> 90f4ada (seven commit)
+
